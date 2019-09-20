@@ -8,6 +8,8 @@ RUN apk add --no-cache python3 &&\
 
 COPY magic-entrypoint.py /magic-entrypoint
 
+RUN chmod +x /usr/local/etc/haproxy/haproxy.cfg
+
 ENV NAMESERVERS="208.67.222.222 8.8.8.8 208.67.220.220 8.8.4.4" \
     LISTEN=:100 \
     PRE_RESOLVE=0 \
@@ -25,8 +27,8 @@ ENV NAMESERVERS="208.67.222.222 8.8.8.8 208.67.220.220 8.8.4.4" \
 ARG VCS_REF
 ARG BUILD_DATE
 LABEL org.label-schema.schema-version="1.0" \
-      org.label-schema.vendor=Tecnativa \
-      org.label-schema.license=Apache-2.0 \
-      org.label-schema.build-date="$BUILD_DATE" \
-      org.label-schema.vcs-ref="$VCS_REF" \
-      org.label-schema.vcs-url="https://github.com/Tecnativa/docker-tcp-proxy"
+    org.label-schema.vendor=Tecnativa \
+    org.label-schema.license=Apache-2.0 \
+    org.label-schema.build-date="$BUILD_DATE" \
+    org.label-schema.vcs-ref="$VCS_REF" \
+    org.label-schema.vcs-url="https://github.com/Tecnativa/docker-tcp-proxy"
